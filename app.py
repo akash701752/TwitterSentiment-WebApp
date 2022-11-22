@@ -33,7 +33,7 @@ import sklearn
 import configparser
 config = configparser.ConfigParser()
 
-config.read('config.ini')
+config.read('/content/config.ini')
 api_key = config['tweets']['api_key']
 api_key_secret = config['tweets']['api_key_secret']
 
@@ -44,7 +44,7 @@ access_token_secret = config['tweets']['access_token_secret']
 auth = tweepy.OAuthHandler(api_key,api_key_secret)
 auth.set_access_token(access_token,access_token_secret)
 
-api = tweepy.API(auth)
+api = tweepy.API(auth,wait_on_rate_limit = True)
 
 public_tweets = api.home_timeline()
 
@@ -73,7 +73,7 @@ print(public_tweets[0].user.screen_name)
 def app():
 
 
-	st.title("Tweet Analyzer 🔥")
+	st.title("Twitter Sentiment Analysis ")
 
 
 	activities=["Tweet Analyzer","Generate Twitter Data"]
@@ -84,23 +84,23 @@ def app():
 
 	if choice=="Tweet Analyzer":
 
-		st.subheader("Analyze the tweets of your favourite Personalities")
+		st.subheader("Analyze the tweets of anyone")
 
-		st.subheader("This tool performs the following tasks :")
+		st.subheader("This app Performs following tasks :")
 
-		st.write("1. Fetches the 5 most recent tweets from the given twitter handel")
+		st.write("1. Fetches recent Tweets from given handle")
 		st.write("2. Generates a Word Cloud")
-		st.write("3. Performs Sentiment Analysis a displays it in form of a Bar Graph")
+		st.write("3. Sentiment Analysis of Tweets and visualize them as graph")
 
 
 		
 
 
-		raw_text = st.text_area("Enter the witter handle of the Personality (without @)")
+		raw_text = st.text_area("Enter the Twitter handle ")
 
 
 
-		st.markdown("<--------     Also Do checkout the another cool tool from the sidebar")
+		#st.markdown("<--------     Also Do checkout the another cool tool from the sidebar")
 
 		Analyzer_choice = st.selectbox("Select the Activities",  ["Show Recent Tweets","Generate WordCloud" ,"Visualize the Sentiment Analysis"])
 
@@ -238,22 +238,22 @@ def app():
 
 	else:
 
-		st.subheader("This tool fetches the last 100 tweets from the twitter handel & Performs the following tasks")
+		st.subheader("It fetches the last 100 tweets from the twitter handel & Performs some tasks")
 
-		st.write("1. Converts it into a DataFrame")
-		st.write("2. Cleans the text")
-		st.write("3. Analyzes Subjectivity of tweets and adds an additional column for it")
-		st.write("4. Analyzes Polarity of tweets and adds an additional column for it")
-		st.write("5. Analyzes Sentiments of tweets and adds an additional column for it")
-
-
+		st.write("1. Converts Tweet into a DataFrame")
+		st.write("2. Performs cleaning of Tweets")
+		st.write("3. Analyzes Subjectivity of tweets ")
+		st.write("4. Analyzes Polarity of tweets ")
+		st.write("5. Analyzes Sentiments of tweets")
 
 
 
 
-		user_name = st.text_area("*Enter the exact twitter handle of the Personality (without @)*")
 
-		st.markdown("<--------     Also Do checkout the another cool tool from the sidebar")
+
+		user_name = st.text_area("*Enter the Twitter handle (without @)*")
+
+		#st.markdown("<--------     Also Do checkout the another cool tool from the sidebar")
 
 		def get_data(user_name):
 
@@ -313,27 +313,12 @@ def app():
 
 
 
-	st.subheader(' Copyright : Akash')
+	st.subheader('-----------------Copyright @ Akash---------------')
 
 
 			
 
 				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
