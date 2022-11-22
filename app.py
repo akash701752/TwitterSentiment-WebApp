@@ -30,21 +30,21 @@ import sklearn
 
 
 
-# import configparser
-# config = configparser.ConfigParser()
+import configparser
+config = configparser.ConfigParser()
 
-# config.read('config.ini')
-# api_key = config['tweets']['api_key']
-# api_key_secret = config['tweets']['api_key_secret']
+config.read('config.ini')
+api_key = config['tweets']['api_key']
+api_key_secret = config['tweets']['api_key_secret']
 
-# access_token = config['tweets']['access_token']
-# access_token_secret = config['tweets']['access_token_secret']
+access_token = config['tweets']['access_token']
+access_token_secret = config['tweets']['access_token_secret']
 
-api_key = "5R1OJDlPi50mSJzXgJOPdM3kp"
-api_key_secret = "4d3cTZVSYXTb32H38FNa08t2aGJl8ospcWmDneCLnuMHLzIfLe"
+# api_key = "5R1OJDlPi50mSJzXgJOPdM3kp"
+# api_key_secret = "4d3cTZVSYXTb32H38FNa08t2aGJl8ospcWmDneCLnuMHLzIfLe"
 
-access_token = "802842062945140737-WEIiYFRrwV02PZ0KkB2oEEPIYSmHDoi"
-access_token_secret = "YXdaXsRliljmgsu1a93YCiCu1BYvHd9mKluhDXDUCCotl"
+# access_token = "802842062945140737-WEIiYFRrwV02PZ0KkB2oEEPIYSmHDoi"
+# access_token_secret = "YXdaXsRliljmgsu1a93YCiCu1BYvHd9mKluhDXDUCCotl"
 
 #Authentication
 auth = tweepy.OAuthHandler(api_key,api_key_secret)
