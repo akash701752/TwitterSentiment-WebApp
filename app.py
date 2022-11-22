@@ -33,7 +33,7 @@ import sklearn
 import configparser
 config = configparser.ConfigParser()
 
-config.read('/content/config.ini')
+config.read('config.ini')
 api_key = config['tweets']['api_key']
 api_key_secret = config['tweets']['api_key_secret']
 
