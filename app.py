@@ -11,40 +11,16 @@ from PIL import Image
 import seaborn as sns
 import sklearn
 
-
-
-# consumerKey = #confidential
-# consumerSecret = #confidential
-# accessToken = #confidential
-# accessTokenSecret = #confidential
-
-
-# #Create the authentication object
-# authenticate = tweepy.OAuthHandler(consumerKey, consumerSecret) 
-    
-# # Set the access token and access token secret
-# authenticate.set_access_token(accessToken, accessTokenSecret) 
-    
-# # Creating the API object while passing in auth information
-# api = tweepy.API(authenticate, wait_on_rate_limit = True)
-
-
-
+#Twitter API
 import configparser
 config = configparser.ConfigParser()
-
+#File to be uploaded
 config.read('config.ini')
 api_key = config['tweets']['api_key']
 api_key_secret = config['tweets']['api_key_secret']
 
 access_token = config['tweets']['access_token']
 access_token_secret = config['tweets']['access_token_secret']
-
-# api_key = "5R1OJDlPi50mSJzXgJOPdM3kp"
-# api_key_secret = "4d3cTZVSYXTb32H38FNa08t2aGJl8ospcWmDneCLnuMHLzIfLe"
-
-# access_token = "802842062945140737-WEIiYFRrwV02PZ0KkB2oEEPIYSmHDoi"
-# access_token_secret = "YXdaXsRliljmgsu1a93YCiCu1BYvHd9mKluhDXDUCCotl"
 
 #Authentication
 auth = tweepy.OAuthHandler(api_key,api_key_secret)
@@ -55,27 +31,11 @@ api = tweepy.API(auth,wait_on_rate_limit = True)
 public_tweets = api.home_timeline()
 
 # print(public_tweets[0].created_at)
-print(public_tweets[0].user.screen_name)
-
-
-
-
-
-
-
-
+#print(public_tweets[0].user.screen_name)
 
 #plt.style.use('fivethirtyeight')
 
-
-
-
-
-
-
-
-
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 def app():
 
 
@@ -236,9 +196,9 @@ def app():
 				st.write(sns.countplot(x=df["Analysis"],data=df))
 
 
-				st.pyplot(use_container_width=True)
+				st.pyplot(fig=None,use_container_width=True)
 
-				
+				st.set_option('deprecation.showPyplotGlobalUse', False)
 
 	
 
@@ -317,23 +277,7 @@ def app():
 
 
 
-
-
 	st.subheader('-----------------Copyright @ Akash---------------')
-
-
-			
-
-				
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == "__main__":
